@@ -8,7 +8,6 @@ import entorno.InterfaceJuego;
 public class Juego extends InterfaceJuego {
 	// El objeto Entorno que controla el tiempo y otros
 	private Entorno entorno;
-	
 
 	// Variables y métodos propios de cada grupo
 	// ...
