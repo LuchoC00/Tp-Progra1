@@ -33,6 +33,10 @@ public class Juego extends InterfaceJuego {
 	public void tick() {
 
 		
+		
+
+		System.err.println("hola");
+
 	}
 
 	@SuppressWarnings("unused")
