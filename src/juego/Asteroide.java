@@ -62,7 +62,8 @@ public class Asteroide {
     }
 
     public boolean colisiono(Proyectil misil){
-        return Funciones.colisionoCuadrado(x, y, tamanio, misil.x, misil.y, 0); // el tamanio es 0 porque la imagen de misil no esta encuadrada
+        return Funciones.colisiono(x, y, tamanio, misil.x, misil.y, 0); // el tamanio es 0 porque la imagen de misil no esta encuadrada
     }
 
+    
 }
