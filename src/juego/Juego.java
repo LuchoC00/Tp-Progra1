@@ -1,27 +1,29 @@
 package juego;
 
-
+import java.awt.Image;
 import entorno.Entorno;
 import entorno.Herramientas;
 import entorno.InterfaceJuego;
 
 public class Juego extends InterfaceJuego {
 	// El objeto Entorno que controla el tiempo y otros
-	private Entorno entorno;
-	
+	private Entorno e;
+	Image fondo;
+	Asteroide [] asteroides;
 
 	// Variables y métodos propios de cada grupo
 	// ...
 
 	Juego() {
 		// Inicializa el objeto entorno
-		this.entorno = new Entorno(this, "Lost Galaxian - Grupo 3 - v1", 800, 600);
+		this.e = new Entorno(this, "Lost Galaxian - Grupo 3 - v1", 800, 600);
 		
 		// Inicializar lo que haga falta para el juego
 		// ...
-
+		fondo = Herramientas.cargarImagen("fondo.jpeg");
+		asteroides = new Asteroide[5];
 		// Inicia el juego!
-		this.entorno.iniciar();
+		this.e.iniciar();
 	}
 
 	/**
@@ -32,11 +34,23 @@ public class Juego extends InterfaceJuego {
 	 */
 	public void tick() {
 
-		
-		
+		e.dibujarImagen(fondo, e.ancho()/2, e.alto()/2, 0, 0.5);
 
-		System.err.println("hola");
-
+		for (int i = 0; i < asteroides.length; i++) {
+			if(asteroides[i] != null){
+				asteroides[i].dibujar();
+				asteroides[i].mover();
+				if(asteroides[i].seFueDePantalla()){
+					asteroides[i] = null;
+				}
+				else if(asteroides[i].chocoBorde()){
+					asteroides[i].cambiarDireccion();
+				}
+			}
+			else{
+				asteroides[i] = new Asteroide(e);
+			}
+		}
 	}
 
 	@SuppressWarnings("unused")
