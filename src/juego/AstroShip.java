@@ -20,7 +20,7 @@ public class AstroShip {
 		this.e = e;
         this.angulo = 1/2*Math.PI;
 		imgAstroship = Herramientas.cargarImagen("nave.png"); //ACÁ VA EL .PNG DE LA NAVE
-		imgAura = Herramientas.cargarImagen("asteroide.png");   //ACÁ VA EL .PNG DEL AURA (LAURA NO :v AURA)
+		imgAura = Herramientas.cargarImagen("aura1.png");   //ACÁ VA EL .PNG DEL AURA (LAURA NO :v AURA)
 	}
 
 	//metodo para desplazar la nave
