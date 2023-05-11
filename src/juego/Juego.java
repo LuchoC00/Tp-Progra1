@@ -74,7 +74,6 @@ public class Juego extends InterfaceJuego {
 				asteroides[i] = new Asteroide(e);
 			}
 		}
-
 	}
 
 	@SuppressWarnings("unused")
