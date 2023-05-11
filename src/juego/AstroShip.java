@@ -19,8 +19,8 @@ public class AstroShip extends InterfaceJuego{
 		this.y = 500;
 		this.e = e;
         this.angulo = 1/2*Math.PI;
-		imgAstroship = Herramientas.cargarImagen("astronave2.png"); //ACÁ VA EL .PNG DE LA NAVE
-		imgAura = Herramientas.cargarImagen("aura2.png");   //ACÁ VA EL .PNG DEL AURA (LAURA NO :v AURA)
+		imgAstroship = Herramientas.cargarImagen("nave.png"); //ACÁ VA EL .PNG DE LA NAVE
+		imgAura = Herramientas.cargarImagen("aura1.png");   //ACÁ VA EL .PNG DEL AURA (LAURA NO :v AURA)
 	}
 
 	//metodo para desplazar la nave

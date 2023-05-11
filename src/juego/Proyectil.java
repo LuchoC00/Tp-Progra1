@@ -15,7 +15,7 @@ public class Proyectil extends InterfaceJuego{
 		this.e = e;
 		this.velocidad = velocidad;
 		this.angulo = angulo;
-		imgMisil = Herramientas.cargarImagen("cohete2.png");    //ACÁ VA EL .PNG DEL PROYECTIL
+		imgMisil = Herramientas.cargarImagen("disparo.png");    //ACÁ VA EL .PNG DEL PROYECTIL
 	}
 	
     //hace avanzar el proyectil sobre el eje y
