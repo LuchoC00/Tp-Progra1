@@ -58,7 +58,11 @@ public class Asteroide {
     }
 
     public boolean chocoBorde(){
-        return !Funciones.estaEnRango(this.x, -25, e.ancho()+25) ;
+        return !Funciones.estaEnRango(this.x, 0, e.ancho()) ;
+    }
+
+    public boolean colisiono(Proyectil misil){
+        return Funciones.colisionoCuadrado(x, y, tamanio, misil.x, misil.y, 0); // el tamanio es 0 porque la imagen de misil no esta encuadrada
     }
 
 }

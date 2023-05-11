@@ -10,6 +10,8 @@ public class Juego extends InterfaceJuego {
 	private Entorno e;
 	Image fondo;
 	Asteroide [] asteroides;
+	AstroShip nave;
+	Proyectil misil;
 
 	// Variables y métodos propios de cada grupo
 	// ...
@@ -22,6 +24,7 @@ public class Juego extends InterfaceJuego {
 		// ...
 		fondo = Herramientas.cargarImagen("fondo.jpeg");
 		asteroides = new Asteroide[5];
+		nave = new AstroShip(e, 0);
 		// Inicia el juego!
 		this.e.iniciar();
 	}
@@ -36,6 +39,21 @@ public class Juego extends InterfaceJuego {
 
 		e.dibujarImagen(fondo, e.ancho()/2, e.alto()/2, 0, 0.5);
 
+		nave.moverNave();
+		nave.dibujarAstroship();
+
+		if(misil == null && e.sePresiono(e.TECLA_ESPACIO)){
+			misil = nave.disparar();
+		}
+		if(misil != null){
+			misil.dibujarMisil();
+			misil.avanzar();
+
+			if(!misil.estaEnPantalla()){
+				misil = null;
+			}
+		}
+
 		for (int i = 0; i < asteroides.length; i++) {
 			if(asteroides[i] != null){
 				asteroides[i].dibujar();
@@ -45,6 +63,10 @@ public class Juego extends InterfaceJuego {
 				}
 				else if(asteroides[i].chocoBorde()){
 					asteroides[i].cambiarDireccion();
+				}
+				else if(misil != null && asteroides[i].colisiono(misil)){
+					asteroides[i] = null;
+					misil = null;
 				}
 			}
 			else{

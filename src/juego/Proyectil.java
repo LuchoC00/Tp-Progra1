@@ -2,10 +2,9 @@ package juego;
 import java.awt.Image;
 import entorno.Entorno;
 import entorno.Herramientas;
-import entorno.InterfaceJuego;
 
-public class Proyectil extends InterfaceJuego{
-    double x, y, velocidad, angulo;
+public class Proyectil {
+    double x, y, velocidad, angulo, escala, tamanio;
 	Image imgMisil;
 	Entorno e;
 	
@@ -15,7 +14,9 @@ public class Proyectil extends InterfaceJuego{
 		this.e = e;
 		this.velocidad = velocidad;
 		this.angulo = angulo;
-		imgMisil = Herramientas.cargarImagen("cohete2.png");    //ACÁ VA EL .PNG DEL PROYECTIL
+		this.imgMisil = Herramientas.cargarImagen("disparo.png");    //ACÁ VA EL .PNG DEL PROYECTIL
+		this.escala = 0.1;
+		this.tamanio = escala * imgMisil.getWidth(null);
 	}
 	
     //hace avanzar el proyectil sobre el eje y
@@ -25,7 +26,11 @@ public class Proyectil extends InterfaceJuego{
 
     //llama al dibujador para dibujar la nave en pantalla cargada en imgMisil
     public void dibujarMisil() {
-		e.dibujarImagen(imgMisil, x, y, angulo, 0.1);
+		e.dibujarImagen(imgMisil, x, y, angulo, escala);
+	}
+
+	public boolean estaEnPantalla(){
+		return Funciones.estaEnPantalla(e, x, y);
 	}
 
 }

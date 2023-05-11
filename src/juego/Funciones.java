@@ -3,10 +3,6 @@ package juego;
 import entorno.Entorno;
 
 public class Funciones {
-    
-    public static void dibujar(){
-        System.err.println("hola");
-    }
 
     public static boolean estaEnPantalla(Entorno e, double x, double y){
         boolean estaEnX = estaEnRango(x,0,e.ancho());
@@ -16,5 +12,11 @@ public class Funciones {
 
     public static boolean estaEnRango(double valor, double desde, double hasta) {
         return desde <= valor && valor <= hasta;
+    }
+
+    public static boolean colisionoCuadrado(double x1, double y1, double tamanio1, double x2, double y2, double tamanio2){
+        boolean xEsta = estaEnRango(x1, x2-tamanio2/2-tamanio1/2, x2+tamanio2/2+tamanio1/2);
+        boolean yEsta = estaEnRango(y1, y2-tamanio2/2-tamanio1/2, y2+tamanio2/2+tamanio1/2);
+        return xEsta && yEsta;
     }
 }

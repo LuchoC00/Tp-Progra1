@@ -3,24 +3,24 @@ import java.awt.Color;
 import java.awt.Image;
 import entorno.Entorno;
 import entorno.Herramientas;
-import entorno.InterfaceJuego;
 
 
-public class AstroShip extends InterfaceJuego{
+public class AstroShip {
     int x, y;
 	double angulo;
 	Image imgAstroship, imgAura;
 	boolean aura;
 	Entorno e;
-    boolean astroAura = false;
+    boolean astroAura;
+
 	
 	public AstroShip(Entorno e, double angulo) {
-		this.x = 400;
-		this.y = 500;
+		this.x = e.ancho()/2;
+		this.y = e.alto()-50;
 		this.e = e;
         this.angulo = 1/2*Math.PI;
-		imgAstroship = Herramientas.cargarImagen("astronave2.png"); //ACÁ VA EL .PNG DE LA NAVE
-		imgAura = Herramientas.cargarImagen("aura2.png");   //ACÁ VA EL .PNG DEL AURA (LAURA NO :v AURA)
+		imgAstroship = Herramientas.cargarImagen("nave.png"); //ACÁ VA EL .PNG DE LA NAVE
+		imgAura = Herramientas.cargarImagen("asteroide.png");   //ACÁ VA EL .PNG DEL AURA (LAURA NO :v AURA)
 	}
 
 	//metodo para desplazar la nave
@@ -113,7 +113,11 @@ public class AstroShip extends InterfaceJuego{
 	
     //llama al dibujador para dibujar la nave en pantalla cargada en imgAstroship
 	public void dibujarAstroship() {
-		e.dibujarImagen(imgAstroship, x, y, angulo, 0.05);
+		e.dibujarImagen(imgAstroship, x, y, angulo, 0.1);
+	}
+
+	public Proyectil disparar(){
+		return new Proyectil(e, x, y, 10, 0);
 	}
 
 }
