@@ -21,7 +21,7 @@ public class Asteroide {
                 this.x = e.ancho();
             }
             else{
-                this.direccion = -Math.PI*1/4;
+                this.direccion = Math.PI*7/4;
                 this.x = 0;
             }
             this.y = Math.random()*e.alto()/3;
@@ -29,7 +29,7 @@ public class Asteroide {
         else{
             this.x = Math.random()*e.ancho();
             this.y = 0;
-            this.direccion = Math.random() > 0.5 ? -Math.PI*3/4 : -Math.PI *1/4 ;  // -Math.PI*3/4 == -135°   -Math.PI*1/4 == -45°
+            this.direccion = Math.random() > 0.5 ? Math.PI*5/4 : Math.PI *7/4 ;  // -Math.PI*3/4 == -135°   -Math.PI*1/4 == -45°
         }
 
         this.velocidad = 2;
@@ -50,7 +50,7 @@ public class Asteroide {
     }
 
     public void cambiarDireccion(){
-        this.direccion += Math.PI/2;
+        this.direccion = direccion == Math.PI *7/4 ? Math.PI*5/4 : Math.PI *7/4;
     }
 
     public boolean seFueDePantalla(){
